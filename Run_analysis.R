@@ -8,16 +8,16 @@ download.file(fileurl,destfile = "./data/Dateset.zip",method = "curl")
 #######
 
 ## get feature data
-data_fea_test <- read.table("C:\\Users\\teren\\OneDrive\\Desktop\\Coursera\\week4 peer grading\\data\\UCI HAR Dataset\\test\\X_test.txt",header = FALSE)
-data_fea_train <- read.table("C:\\Users\\teren\\OneDrive\\Desktop\\Coursera\\week4 peer grading\\data\\UCI HAR Dataset\\train\\X_train.txt",header = FALSE)
+data_fea_test <- read.table(".\\UCI HAR Dataset\\test\\X_test.txt",header = FALSE)
+data_fea_train <- read.table(".\\UCI HAR Dataset\\train\\X_train.txt",header = FALSE)
 
 ## get subject data 
-data_sub_test <- read.table("C:\\Users\\teren\\OneDrive\\Desktop\\Coursera\\week4 peer grading\\data\\UCI HAR Dataset\\test\\subject_test.txt",header = FALSE)
-data_sub_train <- read.table("C:\\Users\\teren\\OneDrive\\Desktop\\Coursera\\week4 peer grading\\data\\UCI HAR Dataset\\train\\subject_train.txt",header = FALSE)
+data_sub_test <- read.table(".\\UCI HAR Dataset\\test\\subject_test.txt",header = FALSE)
+data_sub_train <- read.table(".\\UCI HAR Dataset\\train\\subject_train.txt",header = FALSE)
 
 ## get activity data
-data_act_test <- read.table("C:\\Users\\teren\\OneDrive\\Desktop\\Coursera\\week4 peer grading\\data\\UCI HAR Dataset\\test\\y_test.txt",header = FALSE)
-data_act_train <- read.table("C:\\Users\\teren\\OneDrive\\Desktop\\Coursera\\week4 peer grading\\data\\UCI HAR Dataset\\train\\y_train.txt",header = FALSE)
+data_act_test <- read.table(".\\UCI HAR Dataset\\test\\y_test.txt",header = FALSE)
+data_act_train <- read.table(".\\UCI HAR Dataset\\train\\y_train.txt",header = FALSE)
 
 
 # Merge training and testing dataset 
@@ -26,7 +26,7 @@ data_act <- rbind(data_act_train,data_act_test)
 data_fea <- rbind(data_fea_train,data_fea_test)
 
 # name the columns
-feature_name <- read.table("C:\\Users\\teren\\OneDrive\\Desktop\\Coursera\\week4 peer grading\\data\\UCI HAR Dataset\\features.txt")
+feature_name <- read.table(".\\UCI HAR Dataset\\features.txt")
 names(data_fea) <- feature_name$V2
 
 names(data_sub) <- "Subject"
@@ -46,7 +46,7 @@ Data_new <- Data[,c(mean_std_index,562,563)]
 # use descriptive activity names to name the activities
 ########
 
-activity_lable <- read.table("C:\\Users\\teren\\OneDrive\\Desktop\\Coursera\\week4 peer grading\\data\\UCI HAR Dataset\\activity_labels.txt")
+activity_lable <- read.table("C.\\UCI HAR Dataset\\activity_labels.txt")
 
 Data_new$Activity <- as.character(Data_new$Activity)
 for (i in 1:6) {
